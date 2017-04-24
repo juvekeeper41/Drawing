@@ -23,15 +23,29 @@ public class ShapePanel extends JPanel
 		this.setMinimumSize(new Dimension(250, 500));
 	}
 	
+	private Color getRandomColor()
+	{
+		int alpha = (int) (Math.random() * 255);
+		int red = (int) (Math.random() * 255);
+		int green = (int) (Math.random() * 255);
+		int blue  = (int) (Math.random() * 255);
+		
+		return new Color(red, green, blue, alpha);
+	}
+	
 	public void addRectangles()
 	{
 		for(int index = 0; index < 50; index++)
 		{
 			int width = (int) (Math.random() * 120);
 			int height = (int) (Math.random() * 120) + 15;
-			int xCorner;
-			int yCorner;
+			int xCorner = (int) (Math.random() * this.getWidth() - 15);
+			int yCorner = (int) (Math.random() * this.getHeight() - 15);
+			
+			Rectangle currentRectangle = new Rectangle(xCorner, yCorner, width, height);
+			rectangleList.add(currentRectangle);
 		}
+		this.repaint();
 	}
 	
 }
