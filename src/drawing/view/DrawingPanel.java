@@ -9,25 +9,28 @@ import java.awt.event.ActionListener;
 
 public class DrawingPanel extends JPanel
 {
-	private DrawingController baseController;
+	private ShapePanel shapePanel;
+	private JButton rectangleButton;
 	private SpringLayout baseLayout;
+	private DrawingController baseController;
 	
 	public DrawingPanel(DrawingController baseController)
 	{	
-		setupDrawingDisplay();
-		setupPanel();
-		setupLayout();
-		setupListeners();
-	}
-	
-	private void setupDrawingDisplay()
-	{
+		super();
+		this.baseController = baseController;
 		
+		shapePanel = new ShapePanel(baseController);
+		rectangleButton = new JButton("Draw rectangles");
+		baseLayout = new SpringLayout();
 	}
 	
 	private void setupPanel()
 	{
+		this.setLayout(baseLayout);
+		this.setBackground(Color.GRAY);
+		this.setMinimumSize(new Dimension(600, 600));
 		
+		this.add(rectangleButton);
 	}
 	
 	private void setupLayout()
