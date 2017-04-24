@@ -40,6 +40,13 @@ public class DrawingPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		
+		rectangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addRectangles();
+			}
+		});
+				
 	}
 }

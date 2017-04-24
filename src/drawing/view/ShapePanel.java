@@ -48,4 +48,28 @@ public class ShapePanel extends JPanel
 		this.repaint();
 	}
 	
+	@Override
+	protected void paintComponent(Graphics graphics)
+	{
+		//this.setBackground(getRandomColor()); very bad design choice!
+		Graphics2D drawingGraphics = (Graphics2D) graphics;
+		for(Rectangle currentRectangle : rectangleList)
+		{
+			drawingGraphics.setColor(getRandomColor());
+			int strokeWidth = (int) (Math.random() * 10) + 1;
+			drawingGraphics.setStroke(new BasicStroke(strokeWidth));
+			
+			int randomness = (int) (Math.random() * 35);
+			
+			if(randomness % 5 == 0 || randomness % 7 == 0)
+			{
+				drawingGraphics.fill(currentRectangle);
+			}
+			else
+			{
+				drawingGraphics.draw(currentRectangle);
+			}
+		}
+	}
+	
 }
