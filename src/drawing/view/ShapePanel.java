@@ -8,13 +8,30 @@ import javax.swing.*;
 public class ShapePanel extends JPanel 
 {
 	private DrawingController baseController;
-	private ArrayList<Rectangle> rectangleList;
+	private ArrayList<Shape> rectangleList;
+	private ArrayList<Shape> triangleList;
+	private ArrayList<Shape> circleList;
+	private ArrayList<Shape> ellipseList;
+	private ArrayList<Shape> polygonList;
+	private ArrayList<ArrayList <Shape>> shapes; 
 	
 	public ShapePanel(DrawingController baseController)
 	{
 		super();
 		this.baseController = baseController;
-		rectangleList = new ArrayList<Rectangle>();
+		rectangleList = new ArrayList<Shape>();
+		triangleList = new ArrayList<Shape>();
+		circleList = new ArrayList<Shape>();
+		ellipseList = new ArrayList<Shape>();
+		polygonList = new ArrayList<Shape>();
+		shapes = new ArrayList<ArrayList <Shape>>();
+		shapes.add(rectangleList);
+		shapes.add(triangleList);
+		shapes.add(circleList);
+		shapes.add(ellipseList);
+		shapes.add(polygonList);
+		
+		setupPanel();
 	}
 	
 	private void setupPanel()
